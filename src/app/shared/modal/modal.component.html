@@ -1,0 +1,23 @@
+<div class="modal-container">
+    <div (click)="closeModal()" class="overlay"></div>
+    <div (click)="$event.stopPropagation()" class="modal-box">
+        <span (click)="closeModal()" class="close-button">&#10005;</span>
+        <div class="modal-content">
+            <div class="modal-body">
+                <div class="modal-header">
+                    <ng-content select="[modal-header]"></ng-content>
+                </div>
+                <div class="modal-main-content">
+                    <ng-content select="[modal-main-content]"></ng-content>
+                </div>
+            </div>
+
+            <div class="modal-action">
+                <button class="action-button">
+                    <ng-content select="[modal-action]"></ng-content>
+                </button>
+            </div>
+        </div>
+
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<div class="job-listing-section">
+    <div class="container">
+        <div class="job-section">
+            <div class="filter-section">
+                <div class="filter-view-component">
+                    <app-filter></app-filter>
+                </div>
+            </div>
+            <div>
+                <div class="sort-table">
+                    <p class="job-count"><span class="count">{{ jobCount | number }}</span> jobs found</p>
+                    <div class="sort-group">
+                        <label for="">Sort by:&nbsp;</label>
+                        <select (change)="sortResults($event)" class="sort-options" name="" id="">
+                            <option value="relevance">Relevance</option>
+                            <option value="date">Date</option>
+                        </select>
+
+                    </div>
+
+
+                </div>
+                <div (scroll)="onScroll($event)" class="job-listing-container">
+                    <ng-container *ngIf="jobs.length === 0">
+                        <h2 class="loading-text">Please wait, we're getting Job Listing...</h2>
+                    </ng-container>
+                    <ng-container *ngIf="jobs.length >= 1">
+                        <div *ngFor="let job of jobs; let i = index" (click)="setCurrentJob(i)">
+                            <app-job-card [title]="job.title" [company]="job.company.display_name" [location]="job.location.area[1]" [time]="job.created"></app-job-card>
+                        </div>
+                    </ng-container>
+                    <div *ngIf="displayLoader && this.jobs.length !== 0">
+                        <h2 class="loader-text">Loading more jobs...</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="job-view-section">
+                <div class="job-view-component">
+                    <app-job-view [job]="job"></app-job-view>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div *ngIf="displayJobDetailBox">
+    <app-modal (displayModal)="displayJobDetailBox = false">
+        <div modal-header>
+        </div>
+        <div modal-main-content>
+            <div class="job-content">
+                <div class="job-header">
+                    <div class="company-logo">
+                        <img class="logo" [src]="job.imageUrl" [alt]="job.company.display_name + ' logo'">
+                    </div>
+                    <div class="job-info">
+                        <h5 class="job-title">{{ job.title }}</h5>
+                        <p class="job-company">{{ job.company.display_name }}</p>
+                        <p class="job-location">{{job.location.area[1]}}</p>
+                    </div>
+                </div>
+                <div class="job-desc">
+                    <h6 class="job-desc-header">Job description</h6>
+                    <p class="job-desc-info">
+                        {{ job.description }}
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div modal-action>
+            Apply for this job
+        </div>
+    </app-modal>
+</div>

@@ -1,0 +1,44 @@
+<div class="search-section">
+    <div class="container">
+        <h1 class="search-section-intro">Let's help find your next gig.</h1>
+        <div class="search-box">
+            <form (ngSubmit)="onSubmit()" [formGroup]="jobSearchForm" class="search-form">
+                <div class="search-form--field">
+                    <i-feather class="search-form--icon" name="search"></i-feather>
+                    <input formControlName="what" class="search-form--input" type="text" placeholder="Search jobs using keywords">
+                </div>
+                <div class="three-search-fields">
+                    <div class="search-form--field">
+                        <i-feather class="search-form--icon" name="map-pin"></i-feather>
+                        <select formControlName="country" class="search-form--select" type="text">
+                            <option value="ca">CA</option>
+                            <option value="us">US</option>
+                            <option value="gb">GB</option>
+                        </select>
+                    </div>
+                    <div class="search-form--field">
+                        <i-feather class="search-form--icon" name="map"></i-feather>
+                        <input formControlName="where" class="search-form--input" type="text" placeholder="Enter a location">
+                    </div>
+                    <button type="button" (click)="showMoreFilters()" class="filter-button">More
+                        Filters +</button>
+                </div>
+                <button class="hide-bg-btn">Search Jobs</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+<ng-container *ngIf="displayMoreFiltersModal">
+    <app-modal (displayModal)="displayMoreFiltersModal = false">
+        <div modal-header>
+            Filter Results
+        </div>
+        <div modal-main-content>
+            <app-filter></app-filter>
+        </div>
+        <div modal-action>
+            Apply Filters
+        </div>
+    </app-modal>
+</ng-container>

@@ -1,0 +1,128 @@
+.filter-section {
+    height: 100%;
+    display: grid;
+    grid-template-rows: max-content 1fr;
+}
+
+.filter-form {
+    display: grid;
+    grid-template-rows: 1fr max-content;
+}
+
+.filter-input {
+    font-size: 1.5rem;
+    height: 66vh;
+    overflow-y: scroll;
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    color: var(--var-medium-grey);
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 2rem;
+}
+
+.radio-button-group {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    gap: 1rem;
+}
+
+.filter-group-header {
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+    font-weight: 400;
+    color: var(--var-dark-grey);
+}
+
+.filter-submit {
+    display: grid;
+    place-items: center;
+    width: 100%;
+}
+
+.filter-submit-button {
+    width: 90%;
+    font-size: 1.5rem;
+    padding: 1rem;
+    background: var(--var-white);
+    border: 2px solid var(--var-primary-color);
+    outline: none;
+    /* color: var(--var-white); */
+    font-weight: bold;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    cursor: pointer;
+}
+
+.filter-submit-button:hover {
+    background-color: var(--var-primary-color);
+    color: var(--var-white);
+}
+
+.salary-group {
+    display: grid;
+    grid: repeat(3, max-content) / 1fr;
+    gap: 0.5rem;
+}
+
+.min-salary,
+.max-salary {
+    border: none;
+    outline: none;
+    padding: 1rem;
+}
+
+.date-group {
+    display: flex;
+    align-items: center;
+}
+
+.date-group-input {
+    border: none;
+    outline: none;
+    padding: 1rem;
+    width: 30%;
+}
+
+.date-group-text {
+    margin-left: 1rem;
+}
+
+.city-group {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 1rem;
+}
+
+.city-group-input {
+    border: none;
+    outline: none;
+    width: 100%;
+}
+
+.radio-label {
+    font-size: 1.4rem;
+}
+
+.city-group-icon {
+    margin-right: 1rem;
+    height: 1.8rem;
+    width: 1.8rem;
+    color: var(--var-light-grey);
+}
+
+@media (max-width: 1253px) {
+    .filter-submit-button {
+        font-size: 1.4rem;
+        padding: 1rem;
+    }
+}

@@ -1,0 +1,56 @@
+<div class="filter-section">
+    <form [formGroup]="jobSearchForm" class="filter-form" (ngSubmit)="this.submitFilterResults()">
+        <div class="filter-input">
+            <div class="filter-group">
+                <p class="filter-group-header">Employment type</p>
+                <div class="filter-options">
+                    <div class="radio-button-group">
+                        <input (change)=onChange($event.target) id="full-time" name="employment-type" type="radio" value="full_time">
+                        <label class="radio-label" for="full-time">Full Time</label>
+
+                    </div>
+                    <div class="radio-button-group">
+                        <input (change)=onChange($event.target) id="part-time" name="employment-type" type="radio" value="part_time">
+                        <label class="radio-label" for="part-time">Part Time</label>
+
+                    </div>
+                    <div class="radio-button-group">
+                        <input (change)=onChange($event.target) id="permanent" name="employment-type" type="radio" value="permanent">
+                        <label class="radio-label" for="permanent">Permanent</label>
+
+                    </div>
+                    <div class="radio-button-group">
+                        <input (change)=onChange($event.target) id="contract" name="employment-type" type="radio" value="contract">
+                        <label class="radio-label" for="contract">Contract</label>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <p class="filter-group-header">Salary Range in USD($)</p>
+                <div class="filter-options">
+                    <div class="salary-group">
+                        <input formControlName="salaryMin" class="min-salary" type="text" placeholder="Min">
+                        <p>to</p>
+                        <input formControlName="salaryMax" class="max-salary" type="text" name="" id="" placeholder="Max">
+                    </div>
+                </div>
+            </div>
+
+            <div class="filter-group">
+                <p class="filter-group-header">Posted Within the last:</p>
+                <div class="filter-options">
+                    <div class="date-group">
+                        <input formControlName="postedIn" class="date-group-input" type="text" placeholder="2">
+                        <label class="date-group-text" for="">days</label>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <div class="filter-submit">
+            <button type="submit" class="filter-submit-button">Apply Filters</button>
+        </div>
+    </form>
+</div>

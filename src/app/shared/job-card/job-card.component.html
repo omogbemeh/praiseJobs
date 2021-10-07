@@ -1,0 +1,15 @@
+<div class="job-card">
+    <div class="company-logo">
+        <img class="logo" [src]="imgUrl" [alt]="company + ' logo'" />
+    </div>
+    <div class="job-info">
+        <h5 class="job-title">{{ title }}</h5>
+        <p class="job-company">{{ company }}</p>
+        <p class="job-location">{{ location }}</p>
+        <div class="job-time-info">
+            <p class="job-posting-date" *ngIf="!displayNew">Posted: <span class="posted-info">{{ postedOn }}</span> </p>
+            <p class="job-posting-date" *ngIf="displayNew">Posted <span class="posted-info">{{ diff }}</span></p>
+            <p class="new-posting" *ngIf="displayNew">New</p>
+        </div>
+    </div>
+</div>

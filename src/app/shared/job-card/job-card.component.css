@@ -1,0 +1,67 @@
+.job-card {
+    line-height: 1.4;
+    background: var(--var-grey-background);
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 0.4rem;
+    padding: 1.5rem 2.2rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    margin-bottom: 2rem;
+    cursor: pointer;
+}
+
+.logo {
+    padding-top: 0.5rem;
+    width: 70%;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.job-info {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.job-title {
+    font-size: 1.5rem;
+    font-weight: 400;
+    color: var(--var-dark-grey);
+}
+
+.job-company {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #333;
+}
+
+.job-location {
+    font-size: 1.3rem;
+    font-weight: 400;
+    color: #999;
+}
+
+.job-time-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+}
+
+.job-posting-date {
+    color: #999;
+}
+
+.new-posting {
+    color: green;
+}
+
+.posted-info {
+    color: var(--var-medium-grey);
+    font-weight: 500;
+}

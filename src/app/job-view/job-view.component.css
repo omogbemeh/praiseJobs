@@ -1,0 +1,85 @@
+.job-view-component {
+    height: 100%;
+    display: grid;
+    grid-template-rows: 1fr max-content;
+}
+
+.job-header {
+    margin-bottom: 2rem;
+}
+
+.job-desc {
+    font-size: 1.4rem;
+    padding-bottom: 1rem;
+    line-height: 1.4;
+}
+
+.job-desc-header {
+    font-size: 1.4rem;
+    color: var(--var-dark-grey);
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.job-desc-info {
+    line-height: 1.7;
+    color: var(--var-medium-grey);
+    height: 38vh;
+    overflow-y: scroll;
+    font-size: 1.4rem;
+}
+
+.job-info {
+    display: grid;
+    gap: 0.3rem;
+}
+
+.job-title {
+    color: var(--var-dark-grey);
+    font-size: 2rem;
+    font-weight: 400;
+}
+
+.job-company {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--var-medium-grey);
+}
+
+.job-location {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: #999;
+}
+
+.job-action {
+    display: grid;
+    place-items: center;
+    padding: 1rem 0;
+}
+
+.job-action-button {
+    background: var(--var-white);
+    border: 2px solid var(--var-primary-color);
+    outline: none;
+    padding: 1rem;
+    width: 80%;
+    color: #333;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+.logo {
+    border-radius: 2rem;
+    -webkit-border-radius: 2rem;
+    -moz-border-radius: 2rem;
+    -ms-border-radius: 2rem;
+    -o-border-radius: 2rem;
+    margin-bottom: 1rem;
+    width: 20%;
+}

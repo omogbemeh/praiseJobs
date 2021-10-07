@@ -1,0 +1,124 @@
+.search-section {
+    padding: 0 3rem 1rem;
+}
+
+.search-box {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-section-intro {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+}
+
+.search-form {
+    display: flex;
+    flex-direction: column;
+}
+
+.search-form--field {
+    border: 1px solid transparent;
+    color: inherit;
+    background: var(--var-grey-background);
+    display: grid;
+    gap: 1.5rem;
+    grid-template-columns: max-content 1fr;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 1.1rem 1.5rem;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+}
+
+
+/* .search-form--field:active, */
+
+.search-form--input:active .search-form--field {
+    border: 1px solid var(--var-primary-color);
+}
+
+.search-form--icon {
+    height: 1.5rem;
+    width: 1.5rem;
+    color: #86868d;
+}
+
+.search-form--input {
+    outline: none;
+    font-family: inherit;
+    border: none;
+    background: var(--var-grey-background);
+}
+
+.search-form--select {
+    font-family: inherit;
+    outline: none;
+    border: none;
+    background: var(--var-grey-background);
+}
+
+.three-search-fields {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: 1fr 2fr max-content;
+}
+
+button {
+    border: none;
+    border: 2px solid transparent;
+    font-size: 1.6rem;
+    color: #ffffff;
+    background: var(--var-primary-color);
+    padding: 1.2rem 1.5rem;
+    font-weight: bold;
+    border-radius: 1rem;
+    -webkit-border-radius: 1rem;
+    -moz-border-radius: 1rem;
+    -ms-border-radius: 1rem;
+    -o-border-radius: 1rem;
+    margin-bottom: 2rem;
+}
+
+.filter-button {
+    background: transparent;
+    font-weight: bold;
+    color: var(--var-dark-grey);
+    border: 2px solid var(--var-primary-color);
+    cursor: pointer;
+}
+
+.filter-button:hover {
+    background: var(--var-yellow);
+}
+
+.hide-bg-btn:hover {
+    color: var(--var-primary-color);
+    cursor: pointer;
+    background: var(--var-yellow);
+    border: 2px solid var(--var-primary-color);
+}
+
+@media (min-width: 1050px) {
+    .search-form {
+        display: grid;
+        grid-template-columns: 1fr 1fr max-content;
+        gap: 1rem;
+    }
+    .filter-button {
+        display: none;
+    }
+    .three-search-fields {
+        display: grid;
+        grid-template-columns: max-content 1fr;
+    }
+    /* .hide-bg-btn {
+        display: none;
+    }
+    .show-bg-btn {
+        max-width: 100%;
+    } */
+}

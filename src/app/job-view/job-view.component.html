@@ -1,0 +1,25 @@
+<div *ngIf="job" class="job-view-component">
+    <div class="job-content">
+        <div class="job-header">
+            <div class="company-logo">
+                <img class="logo" [src]="job.imageUrl" [alt]="job?.company?.display_name! + ' logo'">
+            </div>
+            <div class="job-info">
+                <h5 class="job-title">{{job?.title}}</h5>
+                <p class="job-company">Company: {{ job?.company?.display_name! }}</p>
+                <p class="job-location">Location: {{ job.location.area[1]! }}</p>
+                <p class="job-location">Posted on: {{ postedDate }}</p>
+            </div>
+        </div>
+        <div class="job-desc">
+            <h6 class="job-desc-header">Job description</h6>
+            <p class="job-desc-info">
+                {{ job.description }}
+            </p>
+        </div>
+    </div>
+
+    <div class="job-action">
+        <button class="job-action-button">Apply for this job</button>
+    </div>
+</div>
