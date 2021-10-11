@@ -84,7 +84,6 @@ export class JobService {
     };
 
     const realParams = this.getParams(params);
-    this.params = realParams;
 
     this.country = queryParams.country !== '' ? country : this.country;
     this.rootUrl = `https://api.adzuna.com/v1/api/jobs/${this.country}/search/`;
