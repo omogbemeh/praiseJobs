@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { BehaviorSubject } from 'rxjs';
-import { map, pluck, tap } from 'rxjs/operators';
+import { BehaviorSubject, EMPTY } from 'rxjs';
+import { catchError, map, pluck, tap } from 'rxjs/operators';
 import { Job, JobResponse } from '../dto/job.dto';
 import { CompanyLogo } from '../dto/company-logo.dto';
 
@@ -15,9 +15,7 @@ export class JobService {
   private pageNumber = 1;
   private resultsPerPage = 10;
   private pageNum = this.pageNumber;
-  params: any = {
-    results_per_page: this.resultsPerPage,
-  };
+  params = new HttpParams().append('results_per_page', this.resultsPerPage);
   jobs = new BehaviorSubject<Job[]>([]);
   job!: Job;
   private rootUrl = `https://api.adzuna.com/v1/api/jobs/${this.country}/search/`;
@@ -65,27 +63,30 @@ export class JobService {
   // Filter Results
   filterResults(queryParams: any) {
     this.jobs.next([]);
+    this.jobCount.next(0);
     const {
       what,
       where,
       country,
       salary_min,
-      // salary_max,
+      salary_max,
       // employmentType,
       max_days_old,
     } = queryParams;
-    const params = {
+
+    const params: { [key: string]: any } = {
       what,
       where,
       salary_min,
-      // salary_max,
+      salary_max,
       // employmentType,
       max_days_old,
     };
-    this.params = { ...this.params, ...params };
-    console.log(this.params);
-    this.country =
-      queryParams.country !== '' ? queryParams.country : this.country;
+
+    const realParams = this.getParams(params);
+    this.params = realParams;
+
+    this.country = queryParams.country !== '' ? country : this.country;
     this.rootUrl = `https://api.adzuna.com/v1/api/jobs/${this.country}/search/`;
     return this.http
       .get<JobResponse>(`${this.rootUrl}`, {
@@ -94,8 +95,17 @@ export class JobService {
       .pipe(tap((res) => this.jobCount.next(res.count)));
   }
 
+  getParams(obj: { [key: string]: any }): HttpParams {
+    return Object.keys(obj).reduce(
+      (param, key) => (obj[key] ? param.append(key, obj[key]) : param),
+      new HttpParams()
+    );
+  }
+
   // Get images
   getCompanyImage(name: string) {
-    return this.http.get<CompanyLogo>(`${this.getImageUrl}${name}`);
+    return this.http
+      .get<CompanyLogo>(`${this.getImageUrl}${name}`)
+      .pipe(catchError((err) => EMPTY));
   }
 }

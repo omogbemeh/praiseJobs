@@ -27,10 +27,6 @@ export class SearchBoxComponent implements OnInit {
       (res) => this.jobService.jobs.next(res.results),
       (error) => console.log(error)
     );
-    // this.jobService.filterResults(this.jobSearchForm.value).subscribe(
-    //   (res) => console.log(res),
-    //   (error) => console.log(error)
-    // );
   }
   showMoreFilters() {
     this.displayMoreFiltersModal = !this.displayMoreFiltersModal;

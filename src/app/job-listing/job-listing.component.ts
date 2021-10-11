@@ -38,7 +38,10 @@ export class JobListingComponent implements OnInit {
     this.jobService
       .getCompanyImage(this.job?.company.display_name)
       .subscribe((res) => (this.job.imageUrl = res.logo));
-    this.jobService.jobCount.subscribe((res) => (this.jobCount = res));
+    this.jobService.jobCount.subscribe(
+      (res) => (this.jobCount = res),
+      (error) => ''
+    );
   }
 
   // setFirstJob() {
