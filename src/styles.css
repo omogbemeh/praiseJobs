@@ -70,12 +70,12 @@ select {
 
 @media (min-width: 411px) {
     html {
-        font-size: 56%;
+        font-size: 60%;
     }
 }
 
 @media (max-width: 350px) {
     html {
-        font-size: 56%;
+        font-size: 60%;
     }
 }
